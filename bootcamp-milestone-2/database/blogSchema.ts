@@ -16,13 +16,14 @@ const blogSchema = new Schema<Blog>({
   date: { type: Date, required: false, default: new Date() },
   description: { type: String, required: true },
   image: { type: String, required: true },
-  imageAlt: { type: String, required: true, alias: "image_alt" }, 
+  imageAlt: { type: String, required: true, alias: "image_alt" },
   content: { type: String, required: true },
 });
 
 blogSchema.set("toJSON", { virtuals: true, aliases: true });
 blogSchema.set("toObject", { virtuals: true, aliases: true });
 
-const Blog = mongoose.models["blogs"] || mongoose.model("blogs", blogSchema);
+const Blog =
+  mongoose.models["Blogs"] || mongoose.model("Blogs", blogSchema, "Blogs");
 
 export default Blog;
