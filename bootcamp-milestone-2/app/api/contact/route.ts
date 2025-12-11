@@ -66,7 +66,10 @@ export async function POST(req: NextRequest) {
     );
 
     if (!emailJSResponse.ok) {
-      throw new Error("Failed to send email via EmailJS");
+      const errorText = await emailJSResponse.text();
+      console.error("EmailJS API Error:", errorText);
+      console.error("Status:", emailJSResponse.status);
+      throw new Error(`Failed to send email via EmailJS: ${errorText}`);
     }
 
     return NextResponse.json(
