@@ -39,6 +39,7 @@ export default async function BlogPage() {
             content={blog.content}
             image={blog.image}
             imageAlt={blog.imageAlt}
+            comments={blog.comments || []}
           />
         ))}
       </div>
