@@ -42,6 +42,7 @@ export async function POST(req: NextRequest) {
     const templateParams = {
       from_name: name,
       from_email: email,
+      email: email, // For Reply To field
       message: message,
       to_name: "Tyler",
     };
