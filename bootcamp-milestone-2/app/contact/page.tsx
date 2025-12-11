@@ -1,4 +1,4 @@
-import Link from "next/link";
+import ContactForm from "@/components/contactForm";
 
 export default function ContactPage() {
   return (
@@ -13,6 +13,7 @@ export default function ContactPage() {
             <a href="mailto:tylerjsook@gmail.com">tylerjsook@gmail.com</a>
           </li>
         </ul>
+        <ContactForm />
       </div>
     </main>
   );
