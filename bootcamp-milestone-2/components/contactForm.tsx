@@ -122,7 +122,9 @@ export default function ContactForm() {
 
       {status.message && (
         <div
-          className={`status-message ${status.type === "success" ? "success" : "error"}`}
+          className={`status-message ${
+            status.type === "success" ? "success" : "error"
+          }`}
         >
           {status.message}
         </div>

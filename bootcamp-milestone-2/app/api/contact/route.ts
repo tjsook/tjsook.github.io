@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import emailjs from "@emailjs/browser";
 
 export async function POST(req: NextRequest) {
   try {
@@ -31,7 +30,10 @@ export async function POST(req: NextRequest) {
     if (!serviceId || !templateId || !publicKey) {
       console.error("EmailJS credentials are not configured");
       return NextResponse.json(
-        { error: "Email service is not configured. Please contact the administrator." },
+        {
+          error:
+            "Email service is not configured. Please contact the administrator.",
+        },
         { status: 500 }
       );
     }
@@ -47,31 +49,33 @@ export async function POST(req: NextRequest) {
     // Send email using EmailJS
     // Note: EmailJS.send needs to be called from the client side
     // For server-side, we'll use the EmailJS Node.js SDK or fetch API
-    const emailJSResponse = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        service_id: serviceId,
-        template_id: templateId,
-        user_id: publicKey,
-        template_params: templateParams,
-      }),
-    });
+    const emailJSResponse = await fetch(
+      "https://api.emailjs.com/api/v1.0/email/send",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          service_id: serviceId,
+          template_id: templateId,
+          user_id: publicKey,
+          template_params: templateParams,
+        }),
+      }
+    );
 
     if (!emailJSResponse.ok) {
       throw new Error("Failed to send email via EmailJS");
     }
 
     return NextResponse.json(
-      { 
+      {
         message: "Email sent successfully!",
-        data: { name, email }
+        data: { name, email },
       },
       { status: 200 }
     );
-
   } catch (error) {
     console.error("Error sending email:", error);
     return NextResponse.json(
