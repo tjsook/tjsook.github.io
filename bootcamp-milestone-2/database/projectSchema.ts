@@ -1,5 +1,11 @@
 import mongoose, { Schema } from "mongoose";
 
+export type IComment = {
+  user: string;
+  comment: string;
+  time: Date;
+};
+
 // TypeScript type for Project
 export type Project = {
   title: string;
@@ -10,6 +16,7 @@ export type Project = {
   link?: string; // Optional: link to live project
   github?: string; // Optional: link to GitHub repo
   technologies?: string[]; // Optional: array of technologies used
+  comments: IComment[];
 };
 
 // Mongoose schema for Project
@@ -22,6 +29,13 @@ const projectSchema = new Schema<Project>({
   link: { type: String, required: false },
   github: { type: String, required: false },
   technologies: { type: [String], required: false },
+  comments: [
+    {
+      user: { type: String, required: true },
+      comment: { type: String, required: true },
+      time: { type: Date, required: true, default: new Date() },
+    },
+  ],
 });
 
 // Enable virtuals and aliases when converting to JSON

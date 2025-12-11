@@ -30,7 +30,7 @@ export default async function PortfolioPage() {
         </div>
         <div className="rounded-square">
           <h1 className="mptext">my portfolio</h1>
-          <p>No projects found. Add some projects to your database!</p>
+          <p>Coming soon.</p>
         </div>
       </main>
     );

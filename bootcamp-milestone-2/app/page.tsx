@@ -9,23 +9,7 @@ export default function Home() {
           <span style={{ color: "rgb(137, 193, 114)" }}>cal poly slo</span> -
           B.S. in CompSci
         </p>
-        <ul className="hplist" style={{ marginBottom: "30px" }}>
-          <li className="btext">
-            <a href="#friend-target" id="scroll-friend">
-              friend
-            </a>
-          </li>
-          <li className="btext">
-            <a href="#music-target" id="scroll-musicphile">
-              musicphile
-            </a>
-          </li>
-          <li className="btext">
-            <a href="#human-target" id="scroll-human">
-              bio
-            </a>
-          </li>
-        </ul>
+        <ul className="hplist" style={{ marginBottom: "30px" }}></ul>
       </div>
 
       <div id="friend-target" className="rounded-square">
