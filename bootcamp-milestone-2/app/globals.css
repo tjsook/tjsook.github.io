@@ -491,7 +491,6 @@ a:hover {
   color: white;
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  transition: all 0.3s ease;
   font-family: "Verdana", sans-serif;
 }
 
@@ -520,21 +519,16 @@ a:hover {
 }
 
 .contact-form .status-message {
-  padding: 0.75rem;
-  border-radius: 8px;
+  padding: 0.5rem 0;
   font-size: 0.9rem;
-  animation: slideIn 0.3s ease;
+  text-align: center;
 }
 
 .contact-form .status-message.success {
-  background-color: rgba(81, 207, 102, 0.15);
-  border: 2px solid #51cf66;
   color: #51cf66;
 }
 
 .contact-form .status-message.error {
-  background-color: rgba(255, 107, 107, 0.15);
-  border: 2px solid #ff6b6b;
   color: #ff6b6b;
 }
 
@@ -547,28 +541,16 @@ a:hover {
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
   margin-top: 0.25rem;
 }
 
 .contact-form .submit-button:hover:not(:disabled) {
   background-color: rgba(255, 255, 255, 0.3);
   border-color: rgba(255, 255, 255, 0.5);
-  transform: translateY(-2px);
 }
 
 .contact-form .submit-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
